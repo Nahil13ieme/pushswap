@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 08:33:57 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/12 08:37:26 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,7 @@
 
 #include <stdio.h>
 #include "push_swap.h"
-// void	sa(int *a, int *b)
-// {
-// 	printf("sa");
-// }
-// void	sb(int *a, int *b)
-// {
-// 	printf("sb");
-// }
-// void	ss(int *a, int *b)
-// {
-// 	printf("ss");
-// } 
+
 // void	pa(int *a, int *b)
 // {
 // 	printf("pa");
@@ -50,18 +39,6 @@
 // void	pb(int *a, int *b)
 // {
 // 	printf("pb");
-// }
-// void	ra(int *a, int *b)
-// {
-// 	printf("ra");
-// }
-// void	rb(int *a, int *b)
-// {
-// 	printf("rb");
-// }
-// void	rr(int *a, int *b)
-// {
-// 	printf("rr");
 // }
 // void	rra(int *a, int *b)
 // {
