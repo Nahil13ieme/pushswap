@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/09 00:36:09 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/12 08:33:57 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@
  * Ne fait rien si b est vide.
  * pb (push b) : Prend le premier élément au sommet de a et le met sur b.
  * Ne fait rien si a est vide.
- * ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
- * Le premier élément devient le dernier.
- * rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
- * Le premier élément devient le dernier.
- * rr : ra et rb en même temps.
  * rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
  * la pile a. Le dernier élément devient le premier.
  * rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
@@ -81,6 +76,23 @@
 // 	printf("rrr");
 // }
 
+void	free_all(t_stack_node *stack_a, t_stack_node *stack_b, char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (argv)
+	{
+		while(argv[i])
+			free(argv[i++]);
+		free(argv);
+	}
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack_node	*stack_a;
@@ -93,13 +105,19 @@ int	main(int argc, char *argv[])
 	else
 		argv++;
 	init_stack_a(&stack_a, argv);
-	if (is_stack_sorted(stack_a))
+	if (!is_stack_sorted(stack_a))
 	{
-		free_stack(stack_a);
-		printf("OK\n");
-		return (0);
+		//if (stack_size(stack_a) == 3)
+			ra(&stack_a);
+		//else if ( stack_size(stack_a) == 3)
+			//sort_three(&stack_a);
+		// else
+		// 	sort_stack(stack_a);
 	}
-	else	
-		printf("KO\n");
+	print_stack(stack_a);
+	if (argc == 2)
+		free_all(stack_a, NULL, argv);
+	else
+		free_all(stack_a, NULL, NULL);
 	return (0);
 }

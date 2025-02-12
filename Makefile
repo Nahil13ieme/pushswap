@@ -2,11 +2,11 @@
 NAME = pushswap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c stack_logic.c
+SRCS = push_swap.c stack_logic.c utils.c instructions/swap.c instructions/rotate.c
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I. -I$(LIBFT_DIR)
+INCLUDES = -I. -Iinstructions -I$(LIBFT_DIR)
 
 # Rules
 all: $(NAME)
