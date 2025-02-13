@@ -6,52 +6,12 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 08:37:26 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:41:29 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * Le but du jeu est de trier les nombres de la pile a par ordre croissant. Pour ce
- * faire, vous disposez des instructions suivantes :
- * sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
- * Ne fait rien s’il n’y en a qu’un ou aucun.
- * sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
- * Ne fait rien s’il n’y en a qu’un ou aucun.
- * ss : sa et sb en même temps.
- * pa (push a) : Prend le premier élément au sommet de b et le met sur a.
- * Ne fait rien si b est vide.
- * pb (push b) : Prend le premier élément au sommet de a et le met sur b.
- * Ne fait rien si a est vide.
- * rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
- * la pile a. Le dernier élément devient le premier.
- * rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
- * la pile b. Le dernier élément devient le premier.
- * rrr : rra et rrb en même temps.
-*/
-
 #include <stdio.h>
 #include "push_swap.h"
-
-// void	pa(int *a, int *b)
-// {
-// 	printf("pa");
-// }
-// void	pb(int *a, int *b)
-// {
-// 	printf("pb");
-// }
-// void	rra(int *a, int *b)
-// {
-// 	printf("rra");
-// }
-// void	rrb(int *a, int *b)
-// {
-// 	printf("rrb");
-// }
-// void	rrr(int *a, int *b)
-// {
-// 	printf("rrr");
-// }
 
 void	free_all(t_stack_node *stack_a, t_stack_node *stack_b, char **argv)
 {
@@ -73,6 +33,7 @@ void	free_all(t_stack_node *stack_a, t_stack_node *stack_b, char **argv)
 int	main(int argc, char *argv[])
 {
 	t_stack_node	*stack_a;
+	//t_stack_node	*stack_b;
 
 	stack_a = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -84,10 +45,10 @@ int	main(int argc, char *argv[])
 	init_stack_a(&stack_a, argv);
 	if (!is_stack_sorted(stack_a))
 	{
-		//if (stack_size(stack_a) == 3)
-			ra(&stack_a);
-		//else if ( stack_size(stack_a) == 3)
-			//sort_three(&stack_a);
+		if (stack_size(stack_a) == 2)
+			sa(&stack_a);
+		else if ( stack_size(stack_a) == 3)
+			sort_three(&stack_a);
 		// else
 		// 	sort_stack(stack_a);
 	}

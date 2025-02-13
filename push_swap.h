@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:25:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 08:04:28 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:40:44 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,10 @@ void			rb(t_stack_node **b);
 void			rr(t_stack_node **a, t_stack_node **b);
 void			print_stack(t_stack_node *stack);
 t_stack_node	*find_last_node(t_stack_node *stack);
+void			sort_three(t_stack_node **head);
+void			reverse(t_stack_node **head);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 
 #endif

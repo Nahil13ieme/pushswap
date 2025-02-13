@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ss.c                                               :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 04:27:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/10 05:10:35 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/12 08:40:29 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+/* sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
+ * Ne fait rien s’il n’y en a qu’un ou aucun.
+ * sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
+ * Ne fait rien s’il n’y en a qu’un ou aucun.
+ * ss : sa et sb en même temps.
+*/
 
 static void	swap(t_stack_node **head)
 {
