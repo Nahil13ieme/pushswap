@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:25:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 11:40:44 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:43:44 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void			reverse(t_stack_node **head);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
+void			pp(t_stack_node **a, t_stack_node **b, bool b_to_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 03:28:02 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 08:35:18 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:25:32 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,18 +109,6 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		i++;
 	}
 }
-
-// static t_stack_node	*find_last_node(t_stack_node *stack)
-// {
-// 	t_stack_node	*current;
-
-// 	if (!stack)
-// 		return (NULL);
-// 	current = stack;
-// 	while (current->next)
-// 		current = current->next;
-// 	return (current);
-// }
 
 static void	append_node(t_stack_node **stack, int n)
 {

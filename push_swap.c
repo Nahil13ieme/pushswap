@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 22:41:29 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:01:55 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ void	free_all(t_stack_node *stack_a, t_stack_node *stack_b, char **argv)
 int	main(int argc, char *argv[])
 {
 	t_stack_node	*stack_a;
-	//t_stack_node	*stack_b;
+	t_stack_node	*stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
@@ -49,13 +50,13 @@ int	main(int argc, char *argv[])
 			sa(&stack_a);
 		else if ( stack_size(stack_a) == 3)
 			sort_three(&stack_a);
-		// else
-		// 	sort_stack(stack_a);
+		else
+		 	sort_stack(&stack_a, &stack_b);
 	}
 	print_stack(stack_a);
 	if (argc == 2)
-		free_all(stack_a, NULL, argv);
+		free_all(stack_a, stack_b, argv);
 	else
-		free_all(stack_a, NULL, NULL);
+		free_all(stack_a, stack_b, NULL);
 	return (0);
 }
