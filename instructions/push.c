@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:39:04 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 08:58:52 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:35:26 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	pp(t_stack_node **a, t_stack_node **b, bool b_to_a)
 	if (b_to_a)
 	{
 		push(a, b);
-		ft_putstr_fd("pa", 1);
+		ft_putstr_fd("pa\n", 1);
 	}
 	else
 	{
 		push(b, a);
-		ft_putstr_fd("pb", 1);
+		ft_putstr_fd("pb\n", 1);
 	}
 }

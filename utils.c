@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 05:00:30 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/17 15:10:43 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:22:27 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,7 @@ void	set_index(t_stack_node *node)
 	median = stack_size(node) / 2;
 	while(node)
 	{
-		if (node->next && node->nbr > node->next->nbr)
-		{
-			node->index = i + 1;
-			node->next->index = i;
-		}
-		else
-			node->index = i;
+		node->index = i;
 		if (i <= median)
 			node->b_above_median = false;
 		else
@@ -51,6 +45,7 @@ void	set_index(t_stack_node *node)
 		i++;
 	}
 }
+
 /*
 	set index of node a and b
 	set_index(node) : "Go through the list from the head to the queue and
@@ -59,6 +54,7 @@ void	set_index(t_stack_node *node)
 void	init_node(t_stack_node *a, t_stack_node *b)
 {
 		set_index(a);
+		set_index(b);
 }
 
 t_stack_node	*find_last_node(t_stack_node *stack)
