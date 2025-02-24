@@ -6,25 +6,21 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:31:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 11:50:07 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:10:40 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack_node **head)
+void	sort_three(t_stack_node **a)
 {
-	t_stack_node	*max;
-	t_stack_node	*min;
+	t_stack_node	*biggest_node;
 
-	max = find_max_node(*head);
-	min = find_min_node(*head);
-	if (max == *head)
-		ra(head);
-	else if (min == find_last_node(*head) || min == *head)
-	{
-		rra(head);
-	}
-	if (!is_stack_sorted(*head))
-		sa(head);
+	biggest_node = find_max_node(*a);
+	if (biggest_node == *a)
+		ra(a);
+	else if ((*a)->next == biggest_node)
+		rra(a);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
 }

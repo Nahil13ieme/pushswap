@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:44:46 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 16:58:31 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:48:55 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	update_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;
 	t_stack_node	*target_node;
-	long	best_match_index;
+	long			best_match_index;
 
 	while (a)
 	{

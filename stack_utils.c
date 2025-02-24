@@ -6,11 +6,12 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:42:26 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 16:43:44 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:50:42 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 int	is_stack_sorted(t_stack_node *stack)
 {
@@ -27,36 +28,40 @@ int	is_stack_sorted(t_stack_node *stack)
 
 t_stack_node *find_min_node(t_stack_node *stack)
 {
+	long	min;
 	t_stack_node	*min_node;
-	t_stack_node	*current;
-	
+
 	if (!stack)
-		return NULL;
-	min_node = stack;
-	current = stack;
-	while (current)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (current->nbr < min_node->nbr)
-			min_node = current;
-		current = current->next;
+		if (stack->nbr < min)
+		{
+			min = stack->nbr;
+			min_node = stack;
+		}
+		stack = stack->next;
 	}
 	return (min_node);
 }
 
 t_stack_node *find_max_node(t_stack_node *stack)
 {
+	long	max;
 	t_stack_node	*max_node;
-	t_stack_node	*current;
-	
+
 	if (!stack)
-		return NULL;
-	max_node = stack;
-	current = stack;
-	while (current)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
 	{
-		if (current->nbr > max_node->nbr)
-			max_node = current;
-		current = current->next;
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			max_node = stack;
+		}
+		stack = stack->next;
 	}
 	return (max_node);
 }
