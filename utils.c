@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 05:00:30 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/20 16:22:27 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:10:42 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,10 @@ void	print_stack(t_stack_node *stack)
 	ft_putchar_fd('\n', 1);
 }
 
-void	set_index(t_stack_node *node)
-{
-	int	i;
-	int	median;
-
-	if (!node)
-		return ;
-	i = 0;
-	median = stack_size(node) / 2;
-	while(node)
-	{
-		node->index = i;
-		if (i <= median)
-			node->b_above_median = false;
-		else
-			node->b_above_median = true;
-		node = node->next;
-		i++;
-	}
-}
-
-/*
-	set index of node a and b
-	set_index(node) : "Go through the list from the head to the queue and
-	put an index on every elements and if the index is above median or not."
-*/
 void	init_node(t_stack_node *a, t_stack_node *b)
 {
-		set_index(a);
-		set_index(b);
+	(void)a;
+	(void)b;
 }
 
 t_stack_node	*find_last_node(t_stack_node *stack)
@@ -67,4 +41,25 @@ t_stack_node	*find_last_node(t_stack_node *stack)
 	while (current->next)
 		current = current->next;
 	return (current);
+}
+
+void	init_push(t_stack_node **stack, t_stack_node *top, bool is_a)
+{
+	while (*stack != top)
+	{
+		if (is_a)
+		{
+			if (top->b_above_median)
+				ra(stack);
+			else
+				rra(stack);
+		}
+		else
+		{
+			if (top->b_above_median)
+				rb(stack);
+			else
+				rrb(stack);
+		}
+	}
 }

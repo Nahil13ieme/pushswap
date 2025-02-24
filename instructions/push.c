@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:39:04 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/20 16:35:26 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:19:30 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,36 @@
 
 static void	push(t_stack_node **dst, t_stack_node **src)
 {
-	t_stack_node	*tmp;
-	if (!*src || !src)
+	t_stack_node	*push_node;
+
+	if (!*src)
 		return ;
-	tmp = *src;
+	push_node = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
-	tmp->next = *dst;
-	if (*dst)
-		(*dst)->prev = tmp;
-	*dst = tmp;
-}
-
-void	pp(t_stack_node **a, t_stack_node **b, bool b_to_a)
-{
-	if (b_to_a)
+	push_node->prev = NULL;
+	if (!*dst)
 	{
-		push(a, b);
-		ft_putstr_fd("pa\n", 1);
+		*dst = push_node;
+		push_node->next = NULL;
 	}
 	else
 	{
-		push(b, a);
-		ft_putstr_fd("pb\n", 1);
+		push_node->next = *dst;
+		push_node->next->prev = push_node;
+		*dst = push_node;
 	}
+}
+
+void	pa(t_stack_node **a, t_stack_node **b)
+{
+		push(a, b);
+		ft_putstr_fd("pa\n", 1);
+}
+
+void	pb(t_stack_node **a, t_stack_node **b)
+{
+	push(b, a);
+	ft_putstr_fd("pb\n", 1);
 }

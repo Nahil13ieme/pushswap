@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:31:58 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 11:47:45 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:20:52 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,35 @@
  * rrr : rra et rrb en même temps.
 */
 
-void	reverse(t_stack_node **head)
+static void	rev_rotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
 
-	last = find_last_node(*head);
+	if (!*stack || !(*stack)->next)
+		return ;
+	last = find_last_node(*stack);
 	last->prev->next = NULL;
-	last->next = (*head);
+	last->next = *stack;
 	last->prev = NULL;
-	(*head)->prev = last;
-	(*head) = last;
+	*stack = last;
+	last->next->prev = last;
 }
 
 void	rra(t_stack_node **a)
 {
-	reverse(a);
+	rev_rotate(a);
 	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack_node **b)
 {
-	reverse(b);
+	rev_rotate(b);
 	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
-	reverse(a);
-	reverse(b);
+	rev_rotate(a);
+	rev_rotate(b);
 	ft_putstr_fd("rrr\n", 1);
 }

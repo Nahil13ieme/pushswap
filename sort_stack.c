@@ -6,115 +6,85 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 10:25:42 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/23 21:19:51 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:18:50 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-	Je veux faire une fonction recursive qui trouve la meilleure target possible.
-	Pour cela je dois voir dans quel ordre envoyer les nodes dans B.
+static void	d_rotate(t_stack_node **a, t_stack_node **b, t_stack_node *cheap)
+{
+	while (*b != cheap->target_node && *a != cheap)
+		rr(a, b);
+	update_index(*a);
+	update_index(*b);
+}
+
+static void	r_d_rotate(t_stack_node **a, t_stack_node **b, t_stack_node *cheap)
+{
+	while (*b != cheap->target_node && *a != cheap)
+		rrr(a, b);
+	update_index(*a);
+	update_index(*b);
+}
+
+static void	put_min_on_top(t_stack_node **a)
+{
+	while ((*a)->nbr != find_min_node(*a)->nbr)
+	{
+		if (find_min_node(*a)->b_above_median)
+			ra(a);
+		else
+			rra(a);
+	}
+}
+
+static void move(t_stack_node **a, t_stack_node **b, bool node_a)
+{
+	t_stack_node	*cheap;
 	
-*/
-t_stack_node	*find_target(t_stack_node **head)
-{
-	t_stack_node	*target;
-	t_stack_node	*current;
-	int				cost_to_push;
-
-	current = *head;
-	target = current;
-	cost_to_push = 2147483647;
-	while (current)
+	if (node_a)
 	{
-		if (target->nbr < current->nbr && current->index < target->index)
-		{
-			if (cost_to_push > current->index)
-			{
-				target = current;
-				cost_to_push = current->index;
-			}
-		}
-		current = current->next;
-	}
-	return (target);
-}
-
-static int	can_align(t_stack_node **head)
-{
-	t_stack_node	*current;
-	bool			can_break;
-
-	current = *head;
-	can_break = false;
-	while (current->next)
-	{
-		if (current->nbr > current->next->nbr && can_break)
-			return (0);
-		if (current->nbr > current->next->nbr)
-			can_break = true;
-		current = current->next;
-	}
-	return (1);
-}
-
-static void	align_stack_a(t_stack_node **head)
-{
-	t_stack_node	*min;
-	int				median;
-
-	min = find_min_node(*head);
-	median = stack_size(*head) / 2;
-	if (min->index < median)
-	{
-		while (*head != min)
-			ra(head);
+		cheap = get_cheapest_node(*a);
+		if (cheap->b_above_median
+			&& cheap->target_node->b_above_median)
+			d_rotate(a, b, cheap);
+		else if (!(cheap->b_above_median)
+			&& !(cheap->target_node->b_above_median))
+			r_d_rotate(a, b, cheap);
+		init_push(a, cheap, true);
+		init_push(b, cheap->target_node, false);
+		pb(a, b);
 	}
 	else
 	{
-		while (*head != min)
-			rra(head);
+		init_push(a, (*b)->target_node, true);
+		pa(a, b);
 	}
 }
 
-void	align_stacks(t_stack_node **head, t_stack_node **b)
+void	sort_stack(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*target_a;
-	t_stack_node	*target_b;
-	int				median;
+	int	len;
 
-	median = stack_size(*head) / 2;
-	target_b = find_max_node(*b);
-	if (target_b->nbr < find_max_node(*head))
+	len = stack_size(*a);
+	if (len-- > 3 && !is_stack_sorted(*a))
+		pb(a, b);
+	if (len-- > 3 && !is_stack_sorted(*a))
+		pb(a, b);
+	while (len-- > 3 && !is_stack_sorted(*a))
 	{
-		
+		init_node_a(*a, *b);
+		move(a, b, true);
 	}
-}
-
-void	sort_stack(t_stack_node **head, t_stack_node **b)
-{
-	//int				head_size = stack_size(*head);
-	//t_stack_node	*target;
-
-	init_node(*head, *b);
-	if (can_align(head))
+	sort_three(a);
+	while (*b)
 	{
-		align_stack_a(head);
-		return ;
+		init_node_b(*a, *b);
+		move(a, b, false);
 	}
-	//while (head_size > 3)
-	//{
-	//	target = find_target(head);
-	//	while (target != *head)
-	//	{
-	//		if (target->b_above_median)
-	//			rra(head);
-	//		else
-	//			ra(head);
-	//	}
-	//	pp(head, b, false);
-	//	head_size--;
-	//}
-	//align_stack_a(head);
+	update_index(*a);
+	put_min_on_top(a);
+	printf("b : \n");
+	print_stack(*b);
 }

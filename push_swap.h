@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:25:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/20 16:22:09 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:56:37 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ long			ft_atol(char *str);
 int				ft_check_arg(char *str);
 int				ft_check_duplicate(t_stack_node *stack, int n);
 void			init_stack_a(t_stack_node **a, char **argv);
-void			init_node(t_stack_node *a, t_stack_node *b);
+void			init_node_a(t_stack_node *a, t_stack_node *b);
+void			init_node_b(t_stack_node *a, t_stack_node *b);
 int				is_stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min_node(t_stack_node *stack);
 t_stack_node	*find_max_node(t_stack_node *stack);
@@ -58,6 +59,11 @@ void			reverse(t_stack_node **head);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
-void			pp(t_stack_node **a, t_stack_node **b, bool b_to_a);
-
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **a, t_stack_node **b);
+void			set_index(t_stack_node *head, int link_size);
+void			update_index(t_stack_node *stack);
+void			set_cheapest(t_stack_node *stack);
+t_stack_node	*get_cheapest_node(t_stack_node *stack);
+void			init_push(t_stack_node **stack, t_stack_node *top, bool is_a);
 #endif

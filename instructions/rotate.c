@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:32:47 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/12 08:30:44 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:20:10 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@
 */
 #include "../push_swap.h"
 
-void	rotate(t_stack_node **head)
+static void	rotate(t_stack_node **stack)
 {
 	t_stack_node	*last_node;
 
-	last_node = find_last_node((*head));
-	last_node->next = *head;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
-	last_node->next->next = NULL;
+	if (!*stack || !(*stack)->next)
+		return ;
+	last_node = find_last_node(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
-}
+	last_node->next->next = NULL;
+}		
+
 
 void	ra(t_stack_node **a)
 {
