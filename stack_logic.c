@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 03:28:02 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 17:16:59 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:11:44 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 static void	append_node(t_stack_node **stack, int n);
 
-void	free_stack(t_stack_node *node)
+void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*temp;
+	t_stack_node	*tmp;
+	t_stack_node	*current;
 
-	while (node)
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		temp = node->next;
-		free(node);
-		node = temp;
+		tmp = current->next;
+		free(current);
+		current = tmp;
 	}
+	*stack = NULL;
 }
 
 long	ft_atol(char *str)
@@ -91,18 +96,13 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	{
 		if (!ft_check_arg(argv[i]))
 		{
-			ft_putstr_fd("Error: Wrong arg\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
 		}
 		n = ft_atol(argv[i]);
-		if (n > 2147483647 || n < -2147483648)
+		if (n > 2147483647 || n < -2147483648 || !ft_check_duplicate(*a, (int)n))
 		{
-			ft_putstr_fd("Error: n is not INT\n", 2);
-			exit(EXIT_FAILURE);
-		}
-		if (!ft_check_duplicate(*a, (int)n))
-		{
-			ft_putstr_fd("Error: Duplicate value found\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
 		}
 		append_node(a, (int)n);

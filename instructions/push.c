@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:39:04 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 17:19:30 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:34:30 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b)
 {
-		push(a, b);
-		ft_putstr_fd("pa\n", 1);
+	push(a, b);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack_node **a, t_stack_node **b)

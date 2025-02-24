@@ -3,6 +3,7 @@
 		"libft.h": "c",
 		"push_swap.h": "c",
 		"cstdlib": "c",
-		"limits": "c"
+		"limits": "c",
+		"random": "c"
 	}
 }

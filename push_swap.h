@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:25:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 16:56:37 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:05:34 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 }	t_stack_node;
 
-void			free_stack(t_stack_node *node);
+void			free_stack(t_stack_node **stack);
 long			ft_atol(char *str);
 int				ft_check_arg(char *str);
 int				ft_check_duplicate(t_stack_node *stack, int n);
