@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 19:39:58 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 20:31:07 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (1);
-	}
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
 	else

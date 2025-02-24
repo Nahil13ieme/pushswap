@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:32:47 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 17:20:10 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/24 21:04:45 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ static void	rotate(t_stack_node **stack)
 void	ra(t_stack_node **a)
 {
 	rotate(a);
-	printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_stack_node **b)
 {
 	rotate(b);
-	printf("rb\n");
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_stack_node **a, t_stack_node **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	ft_putstr_fd("rr\n", 1);
 }
