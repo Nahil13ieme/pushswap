@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:42:26 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 18:50:42 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:00:58 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	is_stack_sorted(t_stack_node *stack)
 	return (1);
 }
 
-t_stack_node *find_min_node(t_stack_node *stack)
+t_stack_node	*find_min_node(t_stack_node *stack)
 {
-	long	min;
+	long			min;
 	t_stack_node	*min_node;
 
 	if (!stack)
@@ -46,9 +46,9 @@ t_stack_node *find_min_node(t_stack_node *stack)
 	return (min_node);
 }
 
-t_stack_node *find_max_node(t_stack_node *stack)
+t_stack_node	*find_max_node(t_stack_node *stack)
 {
-	long	max;
+	long			max;
 	t_stack_node	*max_node;
 
 	if (!stack)
@@ -66,9 +66,9 @@ t_stack_node *find_max_node(t_stack_node *stack)
 	return (max_node);
 }
 
-int stack_size(t_stack_node *stack)
+int	stack_size(t_stack_node *stack)
 {
-	int	size;
+	int				size;
 	t_stack_node	*current;
 
 	size = 0;

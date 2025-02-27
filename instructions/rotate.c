@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 06:32:47 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 21:04:45 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:07:16 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-/* ra (rotate a) : Décale d’une position vers le haut tous les élements de la pile a.
+/* ra (rotate a) : Décale d’une position vers
+ *le haut tous les élements de la pile a.
  * Le premier élément devient le dernier.
- * rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
+ * rb (rotate b) : Décale d’une position vers
+ * le haut tous les élements de la pile b.
  * Le premier élément devient le dernier.
  * rr : ra et rb en même temps.
 */
@@ -31,8 +32,7 @@ static void	rotate(t_stack_node **stack)
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}		
-
+}
 
 void	ra(t_stack_node **a)
 {

@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c stack_logic.c utils.c sort_three.c instructions/swap.c instructions/rotate.c instructions/push.c instructions/reverse.c sort_stack.c stack_utils.c update_node.c update_node_b.c
 OBJS = $(SRCS:.c=.o)
-LIBFT_DIR = Libft
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INCLUDES = -I. -Iinstructions -I$(LIBFT_DIR)
 

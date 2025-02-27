@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:31:58 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 17:20:52 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:06:29 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* rra (reverse rotate a) : Décale d’une position vers le bas tous les élements de
+/* rra (reverse rotate a) : Décale d’une position vers
+ * le bas tous les élements de
  * la pile a. Le dernier élément devient le premier.
- * rrb (reverse rotate b) : Décale d’une position vers le bas tous les élements de
+ * rrb (reverse rotate b) : Décale d’une position vers
+ * le bas tous les élements de
  * la pile b. Le dernier élément devient le premier.
  * rrr : rra et rrb en même temps.
 */

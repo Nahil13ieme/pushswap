@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:25:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 19:12:43 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:09:49 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 
 # include <stdio.h>
 # include <unistd.h>
-# include "Libft/libft.h"
-
-
-# define bool int
-# define true 1
-# define false 0
+# include "libft/libft.h"
+# include <stdbool.h>
 
 typedef struct s_stack_node
 {
@@ -47,7 +43,7 @@ t_stack_node	*find_max_node(t_stack_node *stack);
 int				stack_size(t_stack_node *stack);
 void			sa(t_stack_node **a);
 void			sb(t_stack_node **b);
-void			ss(t_stack_node **a,t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
 void			ra(t_stack_node **a);
 void			rb(t_stack_node **b);
 void			rr(t_stack_node **a, t_stack_node **b);

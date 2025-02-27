@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_node_b.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:50:20 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 16:58:47 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:04:54 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	update_target_b(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
 	t_stack_node	*target_node;
-	long	best_match_index;
+	long			best_match_index;
 
 	while (b)
 	{

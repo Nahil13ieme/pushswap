@@ -3,33 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack_logic.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 03:28:02 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 18:11:44 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:02:26 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	append_node(t_stack_node **stack, int n);
-
-void	free_stack(t_stack_node **stack)
-{
-	t_stack_node	*tmp;
-	t_stack_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
-	}
-	*stack = NULL;
-}
 
 long	ft_atol(char *str)
 {
@@ -66,9 +49,9 @@ int	ft_check_arg(char *str)
 			if (!((str[i] == '-' || str[i] == '+')
 					&& (i == 0 || str[i - 1] == ' ')
 					&& str[i + 1] && ft_isdigit(str[i + 1])))
-					return (0);
+				return (0);
 		}
-	i++;
+		i++;
 	}
 	return (1);
 }
@@ -100,7 +83,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 			exit(EXIT_FAILURE);
 		}
 		n = ft_atol(argv[i]);
-		if (n > 2147483647 || n < -2147483648 || !ft_check_duplicate(*a, (int)n))
+		if (n > 2147483647 || n < -2147483648
+			|| !ft_check_duplicate(*a, (int)n))
 		{
 			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);

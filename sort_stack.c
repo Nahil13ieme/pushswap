@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 10:25:42 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 19:12:56 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:00:08 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static void	put_min_on_top(t_stack_node **a)
 	}
 }
 
-static void move(t_stack_node **a, t_stack_node **b, bool node_a)
+static void	move(t_stack_node **a, t_stack_node **b, bool node_a)
 {
 	t_stack_node	*cheap;
-	
+
 	if (node_a)
 	{
 		cheap = get_cheapest_node(*a);

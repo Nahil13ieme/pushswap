@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbenhami <nbenhami@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/24 20:31:07 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:02:32 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,28 @@ void	free_arg(char **argv)
 	i = 0;
 	if (argv)
 	{
-		while(argv[i])
+		while (argv[i])
 			free(argv[i++]);
 		free(argv);
 	}
 }
 
+void	free_stack(t_stack_node **stack)
+{
+	t_stack_node	*tmp;
+	t_stack_node	*current;
+
+	if (!stack || !*stack)
+		return ;
+	current = *stack;
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+	*stack = NULL;
+}
 
 int	main(int argc, char *argv[])
 {
@@ -47,10 +63,10 @@ int	main(int argc, char *argv[])
 	{
 		if (stack_size(stack_a) == 2)
 			sa(&stack_a);
-		else if ( stack_size(stack_a) == 3)
+		else if (stack_size(stack_a) == 3)
 			sort_three(&stack_a);
 		else
-			 sort_stack(&stack_a, &stack_b);
+			sort_stack(&stack_a, &stack_b);
 	}
 	free_stack(&stack_a);
 	return (0);
