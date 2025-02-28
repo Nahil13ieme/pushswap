@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 19:17:36 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/27 14:02:32 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:20:42 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,19 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
+static void	sort(t_stack_node **stack_a, t_stack_node **stack_b)
+{
+	if (!is_stack_sorted(*stack_a))
+	{
+		if (stack_size(*stack_a) == 2)
+			sa(stack_a);
+		else if (stack_size(*stack_a) == 3)
+			sort_three(stack_a);
+		else
+			sort_stack(stack_a, stack_b);
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack_node	*stack_a;
@@ -56,18 +69,12 @@ int	main(int argc, char *argv[])
 		argv = ft_split(argv[1], ' ');
 	else
 		argv++;
-	init_stack_a(&stack_a, argv);
+	if (init_stack_a(&stack_a, argv))
+		sort(&stack_a, &stack_b);
+	else
+		write(2, "Error\n", 6);
 	if (argc == 2)
 		free_arg(argv);
-	if (!is_stack_sorted(stack_a))
-	{
-		if (stack_size(stack_a) == 2)
-			sa(&stack_a);
-		else if (stack_size(stack_a) == 3)
-			sort_three(&stack_a);
-		else
-			sort_stack(&stack_a, &stack_b);
-	}
 	free_stack(&stack_a);
 	return (0);
 }

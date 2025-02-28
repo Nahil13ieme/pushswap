@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 21:25:34 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/27 14:09:49 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:17:54 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void			free_stack(t_stack_node **stack);
 long			ft_atol(char *str);
 int				ft_check_arg(char *str);
 int				ft_check_duplicate(t_stack_node *stack, int n);
-void			init_stack_a(t_stack_node **a, char **argv);
+int				init_stack_a(t_stack_node **a, char **argv);
 void			init_node_a(t_stack_node *a, t_stack_node *b);
 void			init_node_b(t_stack_node *a, t_stack_node *b);
 int				is_stack_sorted(t_stack_node *stack);

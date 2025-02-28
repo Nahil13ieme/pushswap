@@ -6,7 +6,7 @@
 /*   By: nbenhami <nbenhami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 03:28:02 by nbenhami          #+#    #+#             */
-/*   Updated: 2025/02/27 14:02:26 by nbenhami         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:17:41 by nbenhami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_check_duplicate(t_stack_node *stack, int n)
 	return (1);
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+int	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
 	int		i;
@@ -78,20 +78,15 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (!ft_check_arg(argv[i]))
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(EXIT_FAILURE);
-		}
+			return (0);
 		n = ft_atol(argv[i]);
 		if (n > 2147483647 || n < -2147483648
 			|| !ft_check_duplicate(*a, (int)n))
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(EXIT_FAILURE);
-		}
+			return (0);
 		append_node(a, (int)n);
 		i++;
 	}
+	return (1);
 }
 
 static void	append_node(t_stack_node **stack, int n)
